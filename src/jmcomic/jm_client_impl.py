@@ -959,10 +959,7 @@ class JmApiClient(AbstractJmClient):
 
         # 1. 检查是否 album_missing
         # json: {'code': 200, 'data': []}
-        data = resp.model().data
-        if isinstance(data, list) and len(data) == 0:
-            ExceptionTool.raise_missing(resp, JmcomicText.parse_to_jm_id(url))
-
+        # 最新api已不存在这种情况，无需检查
         # 2. 是否是特殊的内容
         # 暂无
 
